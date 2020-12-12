@@ -64,6 +64,7 @@ class EditorJsContainer extends React.PureComponent<Props> {
       children,
       enableReInitialize,
       tools,
+      readOnly,
       onChange,
       ...props
     } = this.props
@@ -80,7 +81,7 @@ class EditorJsContainer extends React.PureComponent<Props> {
     this.instance = new EditorJS({
       tools: extendTools,
       holder: this.holder,
-
+      readOnly: readOnly || false,
       ...(onChange && {
         onChange: this.handleChange,
       }),
